@@ -1,0 +1,14 @@
+#! /usr/bin/env ruby
+
+require 'carriage'
+
+opts = {}
+parser = OptionParser.new do |o|
+  o.on '-d', '--daemonize', "Daemonize process" do |arg|
+    opts[:daemonize] = arg
+  end
+end
+parser.parse!(ARGV)
+
+carriage = Carriage.new
+carriage.run(opts)
